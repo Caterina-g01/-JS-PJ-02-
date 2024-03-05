@@ -1,42 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
-	const sliderData = [];
 
-	function Slider(name, area, time, cost, img) {
-		this.name = name;
-		this.city = this.name.replace(",", "<br> LCD");
-		this.area = area;
-		this.time = time;
-		this.cost = cost;
-		this.img = img;
-	}
-
-	sliderData.push(
-		new Slider(
-			"Rostov-On-Don, Admiral",
-			81,
-			3.5,
-			"Upon request",
-			"./images/slider-01.jpg"
-		)
-	);
-	sliderData.push(
-		new Slider(
-			"Sochi, Thieves",
-			105,
-			4,
-			"0.5 M",
-			"./images/slider-02.jpg"
-		)
-	);
-	sliderData.push(
-		new Slider(
-			"Rostov-On-Don, Patriotic",
-			93,
-			3,
-			"1 M",
-			"./images/slider-03.jpg"
-		)
-	);
+	const sliderData = [
+		{
+			name: "Rostov-On-Don, Admiral",
+			area: 81,
+			time: 3.5,
+			cost: "Upon request",
+		},
+		{
+			name: "Sochi, Thieves",
+			area: 105,
+			time: 4,
+			cost: "0.5 M",
+		},
+		{
+			name: "Rostov-On-Don, Patriotic",
+			area: 93,
+			time: 3,
+			cost: "1 M",
+		}
+	];
 
 	const appartmentLinks = document.querySelectorAll('.slider__img-link');
 	const images = document.querySelectorAll(".slider__img");
@@ -62,30 +45,34 @@ document.addEventListener("DOMContentLoaded", function () {
 			img.classList.remove("active");
 			if (i === index) {
 				img.classList.add("active");
-				showActiveDot(index);
+				activateDot(index);
 			}
 		});
 	}
 
 	function activateDot(index) {
-		dots.forEach((dot, i) => {
-			if (i === index) {
-				dot.classList.add("active");
-			} else {
-				dot.classList.remove("active");
-			}
-		});
+		document.querySelector(".dot.active")?.classList.remove("active");
+		dots[index].classList.add("active");
+		changeTextSlider(index);
 	}
 
-	function showActiveDot(index) {
-		dots.forEach((dot, i) => {
-			if (i === index) {
-				dot.classList.add("active");
-			} else {
-				dot.classList.remove("active");
-			}
+	function changeTextSlider(index) {
+		const selectData = sliderData[index];
+		const cityNameElement = document.querySelector(".slider__list.city-name");
+
+		const nameParts = selectData.name.split(", ");
+		cityNameElement.innerHTML = "";
+		nameParts.forEach(part => {
+			const listItem = document.createElement("li");
+			listItem.textContent = part;
+			cityNameElement.appendChild(listItem);
 		});
+
+		document.querySelector(".slider__list.apartment-area li").textContent = selectData.area + " m2";
+		document.querySelector(".slider__list.repair-time li").textContent = selectData.time + " months";
+		document.querySelector(".slider__list.repair-cost li").textContent = selectData.cost;
 	}
+
 
 	dots.forEach((dot, index) => {
 		dot.addEventListener("click", function () {
@@ -97,15 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 
 	function activateLinks(index) {
-		appartmentLinks.forEach((link, i) => {
-			if (i === index) {
-				link.classList.remove('slider__img-link--hidden');
-				link.classList.add('slider__img-link--visible');
-			} else {
-				link.classList.remove('slider__img-link--visible');
-				link.classList.add('slider__img-link--hidden');
-			}
-		});
+		document.querySelector(".slider__img-link.active")?.classList.remove("active");
+		appartmentLinks[index].classList.add("active");
 	}
 
 	appartmentLinks.forEach((appartmentlink, index) => {
