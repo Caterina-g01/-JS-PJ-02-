@@ -1,0 +1,283 @@
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+
+a {
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+}
+
+a:hover {
+	color: rgb(86, 86, 86);
+	/* Цвет гиперссылок при наведении */
+}
+
+a:active {
+	color: #333333;
+	/* Цвет гиперссылок после нажатия */
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	font-size: 18px;
+	background-color: rgb(0, 0, 0);
+}
+
+.container {
+	max-width: 1440px;
+	margin: 0 auto;
+}
+
+.slider {
+	margin: 0 auto;
+	margin-top: 90px;
+	width: 90%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.slider__info-block {
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+	margin-top: 70px;
+	box-sizing: border-box;
+	margin-right: 15px;
+}
+
+.slider__description {
+	font-family: "Nunito Sans";
+	color: #fff;
+	font-size: 14px;
+	line-height: 25px;
+	margin-bottom: 15px;
+}
+
+.slider__title {
+	position: relative;
+	text-transform: uppercase;
+	font-size: 27px;
+	color: #E3B873;
+	font-family: "Yeseva One";
+	font-size: 27px;
+	line-height: 40px;
+}
+
+.slider__title-long-dash::after {
+	content: '';
+	position: absolute;
+	top: 60px;
+	left: 150px;
+	width: 91px;
+	border-bottom: 2px solid #E3B873;
+}
+
+.slider__text {
+	margin-top: 30px;
+	width: 90%;
+	margin-bottom: 40px;
+}
+
+.slider__block {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
+
+.slider__list-block {
+	flex-basis: 50%;
+	margin-bottom: 10px;
+}
+
+.slider__list-title {
+	text-transform: uppercase;
+	margin-bottom: 10px;
+	color: #E3B873;
+	font-family: "Yeseva One";
+	font-size: 18px;
+}
+
+.slider__list {
+	font-family: "Nunito Sans";
+	color: #fff;
+	font-size: 14px;
+	line-height: 20px;
+	margin-bottom: 20px;
+}
+
+.slider__control-buttons {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+.dots {
+	display: flex;
+	width: 100px;
+	justify-content: space-evenly;
+}
+
+.slider__img.active {
+	display: block;
+
+}
+
+.slider__img-link.active {
+	color: #E3B873;
+	font-family: "Yeseva One";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 138.6%;
+	text-transform: uppercase;
+	text-decoration: underline;
+}
+
+.dot.active {
+	background-image: url(../img/White_dott.png);
+	background-repeat: no-repeat;
+}
+
+.slider__img-block {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+}
+
+.slider__links {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	margin-bottom: 45px;
+	width: 90%;
+}
+
+.slider__img-link {
+	font-size: 14px;
+	color: #ffffff4d;
+	text-transform: uppercase;
+	line-height: 20px;
+}
+
+.slider__img-list {
+	display: flex;
+}
+
+.slider__img {
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	display: none;
+}
+
+@media only screen and (max-width: 1100px) {
+	.slider {
+		flex-direction: column;
+		margin: 0 auto;
+		width: 90%;
+	}
+
+	.slider__img {
+		width: 100%;
+	}
+
+	.slider__img-block {
+		width: 100%;
+	}
+
+	.slider__links {
+		margin: 0 auto;
+		width: 80%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+	}
+
+	.slider__info-block {
+		width: 100%;
+	}
+
+	.slider__text-block {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.slider__text {
+		width: 50%;
+		align-self: flex-start;
+	}
+
+	.slider__block {
+		margin-left: 40px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin-top: 0;
+	}
+
+	.slider__info-block {
+		align-items: center;
+	}
+
+	.slider__arrows {
+		margin-bottom: 20px;
+		margin-top: 10px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.slider__description {
+		margin: 0 auto;
+	}
+
+	.slider__text-block {
+		flex-direction: column;
+	}
+
+	.slider__block {
+		margin-left: 0;
+		margin-top: 20px;
+		width: 100%;
+	}
+
+	.slider__text {
+		width: 100%;
+	}
+}
